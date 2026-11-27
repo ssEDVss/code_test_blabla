@@ -22,7 +22,7 @@ crl = canvas.create_oval(50,50,150,150, fill="yellow")
 def on_keyX(event):
     global x_sq1
     if event.keysym.lower() == "x":
-        x += 1
+        x_sq1 += 1
         sq1.place(x=x_sq1, y=y_sq1)
 
 def on_keyY(event):
@@ -30,6 +30,12 @@ def on_keyY(event):
     if event.keysym.lower() == "y":
         y_sq1 += 1
         sq1.place(x=x_sq1, y=y_sq1)
+
+def on_button_click_close():
+    print("Кнопка наажата!")
+    rooty.destroy()
+ButtonExit = tka.Button(rooty, text="Press me for close programm", command=on_button_click_close)
+ButtonExit.pack(pady= 200)
 
 rooty.bind("<Key>", on_keyX)
 rooty.bind("<Key>", on_keyY, add="+")
